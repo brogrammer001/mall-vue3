@@ -34,7 +34,7 @@
                             <div class="user_info_top">
                                 <a href="#">
                                     <img width="40" height="40" :src="userLoginFlag ?
-            '../../assets/index/login_user.png' : '../../assets/index/no_login_user.png'"></a>
+            'src/assets/index/login_user.png' : 'src/assets/index/no_login_user.png'"></a>
                                 <div class="user_info_show">
                                     <p>Hi, 欢迎来到!</p>
                                     <p>
@@ -121,19 +121,19 @@ const leftSelectTips = ref([
 
 const swiperPic = ref([
     {
-        img: "../../assets/index/lunbo.png",
+        img: "src/assets/index/lunbo.png",
         href: ""
     },
     {
-        img: "../../assets/index/lunbo1.png",
+        img: "src/assets/index/lunbo1.png",
         href: ""
     },
     {
-        img: "../../assets/index/lunbo2.png",
+        img: "src/assets/index/lunbo2.png",
         href: ""
     },
     {
-        img: "../../assets/index/lunbo3.png",
+        img: "src/assets/index/lunbo3.png",
         href: ""
     }
 ])
