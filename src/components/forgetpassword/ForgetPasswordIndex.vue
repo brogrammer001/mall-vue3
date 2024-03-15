@@ -4,7 +4,7 @@
             <a-col :span="16" :offset="4">
                 <a-layout-header class="header-title">
                     <div>
-                        <a href="/"><img src="src/assets/login/logo.jpg" /></a>
+                        <a href="/"><img src="../../assets/login/logo.jpg" /></a>
                         <p>找回密码</p>
                     </div>
                     <a href="/">返回首页</a>

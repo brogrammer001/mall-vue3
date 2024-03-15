@@ -24,8 +24,8 @@
                         </div>
                     </a-carousel>
                     <div class="swiper_pic_other">
-                        <a href="#"><img width="350" height="130" src="src/assets/index/section_second_list_right_img.jpg" /></a>
-                        <a href="#"><img width="350" height="130" src="src/assets/index/section_second_list_right_img.png" /></a>
+                        <a href="#"><img width="350" height="130" src="../../assets/index/section_second_list_right_img.jpg" /></a>
+                        <a href="#"><img width="350" height="130" src="../../assets/index/section_second_list_right_img.png" /></a>
                     </div>
                 </a-col>
                 <a-col :span="4">
@@ -34,7 +34,7 @@
                             <div class="user_info_top">
                                 <a href="#">
                                     <img width="40" height="40" :src="userLoginFlag ?
-            'src/assets/index/login_user.png' : 'src/assets/index/no_login_user.png'"></a>
+            '../../assets/index/login_user.png' : '../../assets/index/no_login_user.png'"></a>
                                 <div class="user_info_show">
                                     <p>Hi, 欢迎来到!</p>
                                     <p>
@@ -121,19 +121,19 @@ const leftSelectTips = ref([
 
 const swiperPic = ref([
     {
-        img: "src/assets/index/lunbo.png",
+        img: "../../assets/index/lunbo.png",
         href: ""
     },
     {
-        img: "src/assets/index/lunbo1.png",
+        img: "../../assets/index/lunbo1.png",
         href: ""
     },
     {
-        img: "src/assets/index/lunbo2.png",
+        img: "../../assets/index/lunbo2.png",
         href: ""
     },
     {
-        img: "src/assets/index/lunbo3.png",
+        img: "../../assets/index/lunbo3.png",
         href: ""
     }
 ])

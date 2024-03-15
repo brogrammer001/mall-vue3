@@ -3,7 +3,7 @@
         <a-col :span="16" :offset="4">
             <a-layout-header class="header-title">
                 <div>
-                    <a href="/"><img src="src/assets/login/logo.jpg" /></a>
+                    <a href="/"><img src="../../assets/login/logo.jpg" /></a>
                     <p>欢迎登录</p>
                 </div>
                 <a href="/">返回首页</a>
@@ -72,9 +72,9 @@
                             <a-divider type="vertical" />
                         </template>
                         <a-typography-link class="other-login"><img width="18" height="18"
-                                src="src/assets/login/github.png" />&nbsp;Github</a-typography-link>
+                                src="../../assets/login/github.png" />&nbsp;Github</a-typography-link>
                         <a-typography-link class="other-login"><img width="18" height="18"
-                                src="src/assets/login/gitee.png" />&nbsp;Gitee</a-typography-link>
+                                src="../../assets/login/gitee.png" />&nbsp;Gitee</a-typography-link>
                         <a-typography-link class="other-login" style="color: red;font-weight: bold;">
                             <router-link to="/register">立即注册</router-link>
                         </a-typography-link>

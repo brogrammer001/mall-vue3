@@ -6,7 +6,7 @@
                     <a-col :span="6">
                         <div style="position: relative;" @mouseenter="cityMouseover" @mouseleave="cityMouseleave">
                             <a class="city-box" :style="citySelect" @click.prevent>
-                                <img width="13" height="13" src="src/assets/index/dz.png" />
+                                <img width="13" height="13" src="../../assets/index/dz.png" />
                                 <span>{{ checkedCityItem }}</span>
                             </a>
                             <transition-group appear name="animate__animated animate__bounce"

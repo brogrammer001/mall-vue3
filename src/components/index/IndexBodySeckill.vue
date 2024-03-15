@@ -75,61 +75,61 @@ import 'animate.css';
 import { h, ref, reactive } from 'vue';
 const swiperPic = ref([
     {
-        img: "src/assets/index/section_second_list_img1.jpg",
+        img: "../../assets/index/section_second_list_img1.jpg",
         titleText: "华为mate9 4GB+32GB版 月光银 移动联通电信4G手机 双卡",
         seckillPrice: 16.9,
         price: 17.9
     },
     {
-        img: "src/assets/index/section_second_list_img2.jpg",
+        img: "../../assets/index/section_second_list_img2.jpg",
         titleText: "华为mate9 4GB+32GB版 月光银 移动联通电信4G手机 双卡",
         seckillPrice: 16.9,
         price: 17.9
     },
     {
-        img: "src/assets/index/section_second_list_img3.jpg",
+        img: "../../assets/index/section_second_list_img3.jpg",
         titleText: "华为mate9 4GB+32GB版 月光银 移动联通电信4G手机 双卡",
         seckillPrice: 16.9,
         price: 17.9
     },
     {
-        img: "src/assets/index/section_second_list_img4.jpg",
+        img: "../../assets/index/section_second_list_img4.jpg",
         titleText: "华为mate9 4GB+32GB版 月光银 移动联通电信4G手机 双卡",
         seckillPrice: 16.9,
         price: 17.9
     },
     {
-        img: "src/assets/index/section_second_list_img5.jpg",
+        img: "../../assets/index/section_second_list_img5.jpg",
         titleText: "华为mate9 4GB+32GB版 月光银 移动联通电信4G手机 双卡",
         seckillPrice: 16.9,
         price: 17.9
     },
     {
-        img: "src/assets/index/section_second_list_img6.jpg",
+        img: "../../assets/index/section_second_list_img6.jpg",
         titleText: "华为mate9 4GB+32GB版 月光银 移动联通电信4G手机 双卡",
         seckillPrice: 16.9,
         price: 17.9
     },
     {
-        img: "src/assets/index/section_second_list_img7.jpg",
+        img: "../../assets/index/section_second_list_img7.jpg",
         titleText: "华为mate9 4GB+32GB版 月光银 移动联通电信4G手机 双卡",
         seckillPrice: 16.9,
         price: 17.9
     },
     {
-        img: "src/assets/index/section_second_list_img8.jpg",
+        img: "../../assets/index/section_second_list_img8.jpg",
         titleText: "华为mate9 4GB+32GB版 月光银 移动联通电信4G手机 双卡",
         seckillPrice: 16.9,
         price: 17.9
     },
     {
-        img: "src/assets/index/section_second_list_img9.jpg",
+        img: "../../assets/index/section_second_list_img9.jpg",
         titleText: "华为mate9 4GB+32GB版 月光银 移动联通电信4G手机 双卡",
         seckillPrice: 16.9,
         price: 17.9
     },
     {
-        img: "src/assets/index/section_second_list_img10.jpg",
+        img: "../../assets/index/section_second_list_img10.jpg",
         titleText: "华为mate9 4GB+32GB版 月光银 移动联通电信4G手机 双卡",
         seckillPrice: 16.9,
         price: 17.9
@@ -175,7 +175,7 @@ const swiperPic = ref([
     width: 100%;
     height: 55px;
     padding: 0 30px;
-    background: url("src/assets/index/section_second_header_background.png") no-repeat;
+    background: url("../../assets/index/section_second_header_background.png") no-repeat;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -195,7 +195,7 @@ const swiperPic = ref([
         p:nth-child(1) {
             width: 40px;
             height: 40px;
-            background: url("src/assets/index/section_second.png") no-repeat;
+            background: url("../../assets/index/section_second.png") no-repeat;
             background-position: 6px -39px;
             margin: 10px 10px 0 0;
         }
@@ -210,7 +210,7 @@ const swiperPic = ref([
             display: inline-block;
             width: 20px;
             height: 22px;
-            background: url("src/assets/index/section_second.png") no-repeat;
+            background: url("../../assets/index/section_second.png") no-repeat;
             background-position: -154px -39px;
             margin: 0;
         }
