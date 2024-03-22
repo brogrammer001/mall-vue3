@@ -309,7 +309,7 @@ function sendCode() {
     }
 
     .steps-content {
-        margin-top: 16px;
+        margin-top: 50px;
         text-align: center;
 
         .send-code {

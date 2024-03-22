@@ -98,9 +98,7 @@
                         <nav>
                             <div v-show="isSearch" class="all-class-goods" @click.prevent
                                 @mouseenter="allClassGoodsMouseover" @mouseleave="allClassGoodsMouseleave">
-                                <div>
-                                    全部商品分类
-                                </div>
+                                全部商品分类
                                 <transition-group appear name="animate__animated animate__bounce"
                                     enter-active-class="animate__fadeIn" leave-active-class="animate__fadeOut">
                                     <div v-show="allClassGoodsShow" key="1" class="all-class-goods-box">
@@ -118,7 +116,6 @@
                                 </transition-group>
                             </div>
                             <ul class="nav-ul">
-
                                 <li v-for="(n, index) in searchTipsNavList" :key="index">
                                     <template v-if="n instanceof Object">
                                         <a :href="n.href">{{ n.label }}</a>
@@ -449,7 +446,7 @@ nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 100%;
+        width: calc(100% - 200px);
 
         li {
             a {
@@ -471,7 +468,7 @@ nav {
 
     .all-class-goods {
         font-size: 16px;
-        width: 200px;
+        width: 180px;
         display: block;
         background: #f30213;
         color: #fff;
@@ -485,10 +482,10 @@ nav {
         .all-class-goods-box {
             background-color: #ffffff;
             box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
-            width: 200px;
+            width: 180px;
 
             li {
-                padding-left: 12px;
+                padding: 0 10px;
                 height: 32px;
                 line-height: 32px;
                 overflow: hidden;
