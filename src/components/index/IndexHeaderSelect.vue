@@ -4,13 +4,14 @@
             <header>
                 <a-row>
                     <a-col :span="6">
-                        <div style="position: relative;" @mouseenter="cityMouseover" @mouseleave="cityMouseleave">
-                            <a class="city-box" :style="citySelect" @click.prevent>
+                        <div v-show="!isSearch" style="position: relative;" @mouseenter="cityMouseover"
+                            @mouseleave="cityMouseleave">
+                            <a class="city-box menu-item-city" :style="citySelect" @click.prevent>
                                 <img width="13" height="13" src="../../assets/index/dz.png" />
-                                <span>{{ checkedCityItem }}</span>
+                                <span style="vertical-align: middle;">{{ checkedCityItem }}</span>
                             </a>
                             <transition-group appear name="animate__animated animate__bounce"
-                                enter-active-class="animate__bounceIn" leave-active-class="animate__bounceOut">
+                                enter-active-class="animate__fadeIn" leave-active-class="animate__fadeOut">
                                 <div v-show="cityShow" key="1" class="city-select-box">
                                     <div v-for="(i, index) in cityItem" :key="index" class="city-item"
                                         @click="selectCity(i)"
@@ -18,6 +19,19 @@
                                         {{ i.item }}</div>
                                 </div>
                             </transition-group>
+                        </div>
+                        <div v-show="isSearch" class="is-search-item">
+                            <a-menu :style="headerStyleMenu" class="right-menu" mode="horizontal">
+                                <a-menu-item :key="'home'">
+                                    <router-link to="/">首页</router-link>
+                                </a-menu-item>
+                                <a-menu-item :key="'city'" style="color: red;">
+                                    <div class="menu-item-city">
+                                        <img width="13" height="13" src="../../assets/index/dz.png" />
+                                        <span>{{ checkedCityItem }}</span>
+                                    </div>
+                                </a-menu-item>
+                            </a-menu>
                         </div>
                     </a-col>
                     <a-col :span="10" :offset="8">
@@ -236,6 +250,13 @@ function selectCity(data) {
     checkedCityItem.value = data.item
 }
 
+const showTypeProps = defineProps({
+    isSearch: {
+        type: Boolean,
+        default: false
+    }
+});
+
 </script>
 
 <style lang="less" scoped>
@@ -261,6 +282,10 @@ function selectCity(data) {
         background-color: rgba(0, 0, 0, 0.04);
         color: #f00;
     }
+}
+
+.is-search-item {
+    display: flex;
 }
 
 .hover-color:hover {
@@ -321,5 +346,10 @@ function selectCity(data) {
     a:hover {
         color: #f00;
     }
+}
+
+.menu-item-city {
+    display: flex;
+    align-items: center;
 }
 </style>

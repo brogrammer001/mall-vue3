@@ -5,8 +5,7 @@
                 <a-col :span="4" :offset="1">
                     <div class="header_main_left">
                         <ul>
-                            <li v-for="(l, index) in leftSelectTips" :key="index" @mouseenter="categoryMouseover"
-                                @mouseleave="categoryMouseleave">
+                            <li v-for="(l, index) in leftSelectTips" :key="index">
                                 <template v-for="(s, index) in l.items" :key="index">
                                     <a>{{ s }}</a>
                                     <template v-if="index != l.items.length - 1">
@@ -209,7 +208,6 @@ function selectData(item) {
         a {
             font-size: 14px;
             color: #333;
-            text-decoration: none;
 
             &:hover {
                 color: #C81623;

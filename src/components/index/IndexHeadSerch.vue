@@ -10,8 +10,8 @@
                         <a-row class="search-box">
                             <a-col :span="16" :offset="2">
                                 <div class="search-input-box">
-                                    <input type="text" class="search-input" />
-                                    <button class="button" aria-label="搜索">
+                                    <input type="text" v-model="searchData" class="search-input" />
+                                    <button class="button" aria-label="搜索" @click="search">
                                         <svg t="1705805736272" class="icon" viewBox="0 0 1024 1024" version="1.1"
                                             xmlns="http://www.w3.org/2000/svg" p-id="4444" width="20" height="20">
                                             <path
@@ -94,16 +94,37 @@
                     </a-col>
                 </a-row>
                 <a-row>
-                    <a-col :span="16" :offset="4">
+                    <a-col :span="18" :offset="3">
                         <nav>
-                            <ul>
-                                <li v-for="(n, index) in searchTipsNavList" :key="index">
+                            <div v-show="isSearch" class="all-class-goods" @click.prevent
+                                @mouseenter="allClassGoodsMouseover" @mouseleave="allClassGoodsMouseleave">
+                                <div>
+                                    全部商品分类
+                                </div>
+                                <transition-group appear name="animate__animated animate__bounce"
+                                    enter-active-class="animate__fadeIn" leave-active-class="animate__fadeOut">
+                                    <div v-show="allClassGoodsShow" key="1" class="all-class-goods-box">
+                                        <ul>
+                                            <li v-for="(l, index) in leftSelectTips" :key="index">
+                                                <template v-for="(s, index) in l.items" :key="index">
+                                                    <a :href="`/search/${s}`">{{ s }}</a>
+                                                    <template v-if="index != l.items.length - 1">
+                                                        &nbsp;/&nbsp;
+                                                    </template>
+                                                </template>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </transition-group>
+                            </div>
+                            <ul class="nav-ul">
 
+                                <li v-for="(n, index) in searchTipsNavList" :key="index">
                                     <template v-if="n instanceof Object">
                                         <a :href="n.href">{{ n.label }}</a>
                                     </template>
 
-                                    <template v-if="!(n instanceof Object)">
+                                    <template v-else>
                                         |
                                     </template>
                                 </li>
@@ -117,7 +138,10 @@
 </template>
 
 <script setup>
+import 'animate.css';
 import { h, ref, reactive } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 const headerStyle = {
     textAlign: "center",
     color: "#999",
@@ -128,6 +152,24 @@ const headerStyle = {
     backgroundColor: "#fff",
     borderBottom: "1px solid #ddd"
 };
+
+const showTypeProps = defineProps({
+    isSearch: {
+        type: Boolean,
+        default: false
+    }
+});
+
+let searchData = ref("");
+
+const search = () => {
+    router.push({
+        name: 'search',
+        params: {
+            searchData: searchData.value
+        }
+    });
+}
 
 const searchTips = ref([
     {
@@ -201,6 +243,69 @@ const searchTipsNavList = ref([
 
 for (let index = 1; index < (searchTipsNavList.value.length / 4); index++) {
     searchTipsNavList.value.splice(index * 4 + (index - 1), 0, '|')
+}
+
+const leftSelectTips = ref([
+    {
+        items: ['家用电器']
+    },
+    {
+        items: ['手机', '运营商', '数码']
+    },
+    {
+        items: ['电脑', '办公']
+    },
+    {
+        items: ['家居', '家具', '家装', '厨具']
+    },
+    {
+        items: ['男装', '女装', '童装', '内衣']
+    },
+    {
+        items: ['美妆个护', '宠物']
+    },
+    {
+        items: ['鞋', '箱包', '钟表', '珠宝']
+    },
+    {
+        items: ['运动', '户外']
+    },
+    {
+        items: ['汽车', '汽车用品']
+    },
+    {
+        items: ['母婴', '玩具乐器']
+    },
+    {
+        items: ['食品', '酒类', '生鲜', '特产']
+    },
+    {
+        items: ['礼品鲜花', '农资绿植']
+    },
+    {
+        items: ['医药保健', '计生情趣']
+    },
+    {
+        items: ['图书', '音像', '电子书']
+    },
+    {
+        items: ['彩票', '酒店', '旅游', '生活']
+    }
+])
+
+let allClassGoodsShow = ref(false);
+/**
+ * 移入
+ */
+function allClassGoodsMouseover() {
+    allClassGoodsShow.value = true;
+}
+
+/**
+ * 移出
+ */
+function allClassGoodsMouseleave() {
+    allClassGoodsShow.value = false;
 }
 </script>
 
@@ -336,18 +441,22 @@ header {
 }
 
 nav {
-    ul {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+
+    .nav-ul {
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
+        width: 100%;
 
         li {
-
             a {
                 position: relative;
                 display: block;
-                height: 40px;
-                line-height: 40px;
+                height: 35px;
+                line-height: 35px;
                 font-size: 16px;
                 font-weight: 700;
                 color: #555;
@@ -355,6 +464,47 @@ nav {
 
                 &:hover {
                     color: #c81623;
+                }
+            }
+        }
+    }
+
+    .all-class-goods {
+        font-size: 16px;
+        width: 200px;
+        display: block;
+        background: #f30213;
+        color: #fff;
+        text-align: center;
+        cursor: pointer;
+        height: 32px;
+        line-height: 32px;
+        font-weight: 700;
+        margin-right: 20px;
+
+        .all-class-goods-box {
+            background-color: #ffffff;
+            box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+            width: 200px;
+
+            li {
+                padding-left: 12px;
+                height: 32px;
+                line-height: 32px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                color: #333;
+                text-align: left;
+                font-weight: normal;
+
+                a {
+                    font-size: 14px;
+                    color: #333;
+
+                    &:hover {
+                        color: #C81623;
+                    }
                 }
             }
         }
