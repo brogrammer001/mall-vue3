@@ -4,7 +4,7 @@
             <header>
                 <a-row>
                     <a-col :span="4">
-
+                        <img width="190" height="100" src="../../assets/login/logo.jpg"/>
                     </a-col>
                     <a-col :span="16">
                         <a-row class="search-box">

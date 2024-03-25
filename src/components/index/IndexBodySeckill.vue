@@ -52,7 +52,7 @@
                     <div v-for="(item, index) in swiperPic" :key="index" class="swiper-pic-box">
                         <a-card hoverable>
                             <template #cover>
-                                <div class="">
+                                <div>
                                     <a-image :alt="item.titleText" :src="item.img" />
                                 </div>
                             </template>
