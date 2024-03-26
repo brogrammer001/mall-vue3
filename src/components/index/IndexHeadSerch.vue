@@ -94,8 +94,8 @@
                     </a-col>
                 </a-row>
                 <a-row>
-                    <a-col :span="18" :offset="3">
-                        <nav>
+                    <a-col :span="isSearch ? 18 : 16" :offset="isSearch ? 3 : 4">
+                        <nav :class="isSearch ? 'search-nav' : 'no-search-nav' ">
                             <div v-show="isSearch" class="all-class-goods" @click.prevent
                                 @mouseenter="allClassGoodsMouseover" @mouseleave="allClassGoodsMouseleave">
                                 全部商品分类
@@ -437,16 +437,26 @@ header {
     vertical-align: bottom;
 }
 
+.search-nav{
+    justify-content: space-between;
+    .nav-ul {
+        width: calc(100% - 200px);
+    }
+}
+
+.no-search-nav{
+    justify-content: space-around;
+    .nav-ul {
+        width: 100%;
+    }
+}
+
 nav {
     display: flex;
-    margin-top: 10px;
-    justify-content: space-between;
-
     .nav-ul {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: calc(100% - 200px);
 
         li {
             a {
@@ -474,8 +484,8 @@ nav {
         color: #fff;
         text-align: center;
         cursor: pointer;
-        height: 32px;
-        line-height: 32px;
+        height: 38px;
+        line-height: 38px;
         font-weight: 700;
         margin-right: 20px;
 
@@ -483,6 +493,8 @@ nav {
             background-color: #ffffff;
             box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
             width: 180px;
+            position: relative;
+            z-index: 999;
 
             li {
                 padding: 0 10px;
