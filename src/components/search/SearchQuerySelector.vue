@@ -54,7 +54,7 @@
                     </a-form-item>
                 </div>
             </transition-group>
-            <a-divider><a-button type="dashed" @click="moreSelector = !moreSelector">{{ moreSelector ? '关闭' : '更多选项'
+            <a-divider><a-button type="dashed" @click="moreSelector = !moreSelector">{{ moreSelector ? '收起' : '更多选项'
                     }}</a-button></a-divider>
         </template>
     </a-form>
