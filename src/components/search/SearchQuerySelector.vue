@@ -1,6 +1,6 @@
 <template>
     <a-form :model="formData" :label-col="labelCol">
-        <a-form-item v-for="(d, index) in visibleSelectorData" :key="index" :label="d.selectorTitle">
+        <a-form-item v-for="(d, index) in visibleSelectorData" :key="index" :label="d.selectorTitle" labelAlign="left">
             <a-checkbox-group v-model:value="formData[d.selectorName]" v-show="!d.multipleChoice">
                 <template v-if="d.selectorType == '1'">
                     <a-checkbox v-for="(i, iindex) in d.selectorItems" :key="iindex" :value="i.value" :name="i.value"
@@ -28,7 +28,7 @@
             <transition-group appear name="animate__animated animate__bounce" enter-active-class="animate__fadeIn"
                 leave-active-class="animate__fadeOut">
                 <div v-show="moreSelector">
-                    <a-form-item v-for="(d, index) in invisibleSelectorData" :key="index" :label="d.selectorTitle">
+                    <a-form-item v-for="(d, index) in invisibleSelectorData" :key="index" :label="d.selectorTitle" labelAlign="left">
                         <a-checkbox-group v-model:value="formData[d.selectorName]" v-show="!d.multipleChoice">
                             <template v-if="d.selectorType == '1'">
                                 <a-checkbox v-for="(i, iindex) in d.selectorItems" :key="iindex" :value="i.value"
@@ -194,7 +194,7 @@ selectorData.forEach(item => {
 .selector-img-box {
     width: 120px;
     height: 40px;
-    margin: 10px;
+    margin: 5px 5px 5px 0;
 }
 
 .selector-switch {
