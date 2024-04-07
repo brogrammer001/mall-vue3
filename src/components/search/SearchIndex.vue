@@ -3,20 +3,23 @@
     <IndexHeadSerch :isSearch="true" />
     <SearchHotSalePromotion />
     <a-config-provider :theme="{ token: { colorPrimary: '#ec5353' } }">
-        <a-row style="margin-top: 5px;">
+        <a-row style="margin-top: 5px;background: #f2f2f2;">
             <a-col :span="16" :offset="4">
-                <a-breadcrumb>
+                <a-breadcrumb class="breadcrumb-style">
                     <a-breadcrumb-item><a href="/"><home-outlined /></a></a-breadcrumb-item>
                     <a-breadcrumb-item><a href="">手机</a></a-breadcrumb-item>
                 </a-breadcrumb>
+            </a-col>
+        </a-row>
+        <a-row>
+            <a-col :span="16" :offset="4">
                 <a-layout>
                     <a-layout-header class="selector-title">
                         <h3><b>手机</b><em>商品筛选</em></h3>
-                        <div class="st-ext">共&nbsp;<span>10135</span>个商品 </div>
+                        <div class="st-ext">共&nbsp;<span>10135</span>个商品</div>
                     </a-layout-header>
                     <a-layout-content>
                         <SearchQuerySelector />
-                        <a-divider />
                         <SearchListData/>
                     </a-layout-content>
                 </a-layout>
@@ -72,4 +75,7 @@ let searchData = router.currentRoute.value.params.searchData;
     }
 }
 
+.breadcrumb-style{
+    padding: 13px 0 9px;
+}
 </style>

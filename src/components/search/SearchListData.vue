@@ -5,11 +5,11 @@
     </a-radio-group>
     <a-list :grid="{ column: 5 }" :pagination="pagination" :data-source="listData">
         <template #renderItem="{ item }">
-            <a-list-item style="padding: 0;margin: 12px 0 0 12px;">
+            <a-list-item style="padding: 0;margin: 12px 0 0 12px;" @click="productDetail(item.spu_id)">
                 <a-card hoverable>
                     <template #cover>
                         <img width="220" height="220" :alt="item.ad_title"
-                            :src="'https://img11.360buyimg.com/n7/' + item.image_url" />
+                        :src="'https://img11.360buyimg.com/n7/' + item.image_url" />
                     </template>
                     <a-card-meta>
                         <template #title>
@@ -30,7 +30,9 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
 import { h, ref, reactive, onMounted } from 'vue';
+let router = useRouter();
 //排序选择
 const sortSelector = reactive([
     {
@@ -77,8 +79,16 @@ const pagination = {
         topPageCurrent.value = page;
     },
     pageSize: topPageSize.value,
-    current: topPageCurrent.value
 };
+
+const productDetail = (productId) => {
+    router.push({
+        name: 'productDetail',
+        params: {
+            productId: productId
+        }
+    });
+}
 </script>
 
 <style lang="less" scoped>
