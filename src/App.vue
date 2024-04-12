@@ -13,11 +13,6 @@ ul {
   margin: 0;
 }
 
-body,
-html {
-  background: #F6F6F6;
-}
-
 img {
   border: 0;
   vertical-align: middle;

@@ -9,7 +9,7 @@
                 <a-card hoverable>
                     <template #cover>
                         <img width="220" height="220" :alt="item.ad_title"
-                        :src="'https://img11.360buyimg.com/n7/' + item.image_url" />
+                            :src="'https://img11.360buyimg.com/n7/' + item.image_url" />
                     </template>
                     <a-card-meta>
                         <template #title>

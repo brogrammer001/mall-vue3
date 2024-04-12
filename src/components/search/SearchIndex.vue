@@ -3,7 +3,7 @@
     <IndexHeadSerch :isSearch="true" />
     <SearchHotSalePromotion />
     <a-config-provider :theme="{ token: { colorPrimary: '#ec5353' } }">
-        <a-row style="margin-top: 5px;background: #f2f2f2;">
+        <a-row style="margin-top: 5px;">
             <a-col :span="16" :offset="4">
                 <a-breadcrumb class="breadcrumb-style">
                     <a-breadcrumb-item><a href="/"><home-outlined /></a></a-breadcrumb-item>
@@ -14,11 +14,7 @@
         <a-row>
             <a-col :span="16" :offset="4">
                 <a-layout>
-                    <a-layout-header class="selector-title">
-                        <h3><b>手机</b><em>商品筛选</em></h3>
-                        <div class="st-ext">共&nbsp;<span>10135</span>个商品</div>
-                    </a-layout-header>
-                    <a-layout-content>
+                    <a-layout-content style="background: #fff;">
                         <SearchQuerySelector />
                         <SearchListData/>
                     </a-layout-content>
@@ -26,7 +22,6 @@
             </a-col>
         </a-row>
     </a-config-provider>
-
 </template>
 
 <script setup>
@@ -44,37 +39,6 @@ let searchData = router.currentRoute.value.params.searchData;
 </script>
 
 <style lang="less" scoped>
-.selector-title {
-    background: #dfdede;
-    overflow: hidden;
-    height: 34px;
-    zoom: 1;
-    display: flex;
-    align-items: center;
-    padding: 0;
-    margin-top: 10px;
-
-    h3 {
-        margin-left: 10px;
-        font-size: 14px;
-
-        b {
-            color: #e4393c;
-            margin-right: 5px;
-        }
-
-        em {
-            font-style: normal;
-        }
-    }
-
-    .st-ext {
-        margin-left: 20px;
-        font-size: 13px;
-        color: #999;
-    }
-}
-
 .breadcrumb-style{
     padding: 13px 0 9px;
 }
