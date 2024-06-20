@@ -45,7 +45,6 @@ const zommIn = (ev) => {
 }
 
 const zoomMove = (ev) => {
-    console.log(ev.currentTarget.offsetTop)
     const { clientX, clientY } = ev
     const { offsetWidth, offsetHeight} = imgbox.value
     let mx = clientX - 300 - (maskWidth / 2),

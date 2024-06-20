@@ -41,15 +41,55 @@
 </div> -->
                     </a-col>
                     <a-col :span="15">
-                        <!-- <div class="sku-name">{{ productData.phoneTitle }}</div>
+                        <div class="sku-name">{{ productData.phoneTitle }}</div>
                         <div class="box-hide">{{ latestRelease.title }}
                             <a :href="'productDetail/' + latestRelease.id"><u>{{ latestRelease.hrefDesc }}</u></a>
-                        </div> -->
-                        <div class="box-summary">
-                            <div>价格</div>
-                            <span>￥</span>
-                            <span class="price">4499.00</span>
                         </div>
+
+                        <a-form :model="productForm" :label-col="labelCol" :wrapper-col="wrapperCol">
+                            <a-form-item class="box-summary box-stock" label="价　格">
+                                <div class="box-item">
+                                    <span class="price">￥{{ productData.price }}</span>
+                                </div>
+                            </a-form-item>
+                            <a-form-item class="box-stock" label="配送至">
+                                <div class="box-item">
+                                    <a-cascader v-model:value="areaValue" placeholder="Please select" :options="areaOptions"
+                                        @change="onChange">
+                                        <a class="ant-dropdown-link dt" @click.prevent>
+                                            {{ text }}
+                                            <DownOutlined />
+                                        </a>
+                                    </a-cascader>
+                                </div>
+                            </a-form-item>
+                            <a-divider />
+                            <a-form-item class="box-stock" label="选择颜色">
+                                <a-radio-group v-model:value="colorValue">
+                                    <a-radio-button value="a">摩卡金</a-radio-button>
+                                    <a-radio-button value="b">亮黑色</a-radio-button>
+                                    <a-radio-button value="c">香槟金</a-radio-button>
+                                    <a-radio-button value="d">樱粉金</a-radio-button>
+                                </a-radio-group>
+                            </a-form-item>
+                            <a-form-item class="box-stock" label="选择版本">
+                                <a-radio-group v-model:value="versionValue">
+                                    <a-radio-button value="a">摩卡金</a-radio-button>
+                                    <a-radio-button value="b">亮黑色</a-radio-button>
+                                    <a-radio-button value="c">香槟金</a-radio-button>
+                                    <a-radio-button value="d">樱粉金</a-radio-button>
+                                </a-radio-group>
+                            </a-form-item>
+                            <a-form-item class="box-stock" label="选择内存">
+                                <a-radio-group v-model:value="memoryValue">
+                                    <a-radio-button value="a">8GB+128GB</a-radio-button>
+                                    <a-radio-button value="b">8GB+256GB</a-radio-button>
+                                    <a-radio-button value="c">12GB+256GB</a-radio-button>
+                                    <a-radio-button value="d">16GB+512GB</a-radio-button>
+                                </a-radio-group>
+                            </a-form-item>
+                        </a-form>
+
                     </a-col>
                 </a-row>
             </a-col>
@@ -58,7 +98,7 @@
 </template>
 
 <script setup>
-import { HomeOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons-vue';
+import { HomeOutlined, LeftOutlined, RightOutlined, DownOutlined } from '@ant-design/icons-vue';
 import { useRouter } from 'vue-router';
 import IndexHeaderSelect from '../index/IndexHeaderSelect.vue'
 import IndexHeadSerch from '../index/IndexHeadSerch.vue'
@@ -70,16 +110,83 @@ let router = useRouter();
 let productId = router.currentRoute.value.params.productId;
 
 const fakeDataUrl = `/src/json/productDetail.json`;
+const areaDataUrl = `/src/json/area.json`;
 const productData = ref({});
+const areaOptions = ref([]);
 onMounted(() => {
     fetch(fakeDataUrl)
         .then(res => res.json())
         .then(res => {
             productData.value = res;
         });
+
+    fetch(areaDataUrl)
+        .then(res => res.json())
+        .then(res => {
+            for (let index = 0; index < res.provinceList.length; index++) {
+                const element = res.provinceList[index];
+                areaOptions.value.push({
+                    value: element.name,
+                    label: element.name,
+                    children: recursionSetArea(element.areaList)
+                })
+            }
+        });
 });
 
 const latestRelease = computed(() => productData.value.latestRelease ? productData.value.latestRelease : {})
+
+const productForm = reactive({
+    price: '',
+});
+
+const labelCol = {
+    style: {
+        width: '50px',
+    },
+};
+
+const wrapperCol = {
+    span: 24,
+};
+
+const colorValue = ref("");
+const versionValue = ref("");
+const memoryValue = ref("");
+
+/**
+ * 设置省市县选择
+ * @param {*} areaArray 
+ */
+function recursionSetArea(areaArray) {
+    const childrenList = [];
+    for (let index = 0; index < areaArray.length; index++) {
+        const element = areaArray[index];
+
+        if (!element.areaList) {
+            childrenList.push({
+                value: element,
+                label: element
+            })
+        } else {
+            childrenList.push({
+                value: element.name,
+                label: element.name,
+                children: recursionSetArea(element.areaList)
+            })
+        }
+    }
+    return childrenList;
+}
+
+/**
+ * 回显省市县选择
+ */
+const areaValue = ref([]);
+const text = ref('江西省南昌市');
+const onChange = (_value, selectedOptions) => {
+    text.value = selectedOptions.map(o => o.label).join(', ');
+};
 
 </script>
 
@@ -101,6 +208,10 @@ const latestRelease = computed(() => productData.value.latestRelease ? productDa
 :deep(.slick-arrow.custom-slick-arrow:hover) {
     color: #797676;
     opacity: 0.5;
+}
+
+:deep(.ant-form-item .ant-form-item-label > label) {
+    color: #999;
 }
 
 .breadcrumb-style {
@@ -147,27 +258,32 @@ const latestRelease = computed(() => productData.value.latestRelease ? productDa
 }
 
 .box-summary {
-    padding: 10px 0 5px;
     background: #f3f3f3;
-    position: relative;
-    margin-bottom: 5px;
-    display: flex;
-    line-height: 22px;
 
-    div {
-        padding-left: 10px;
-        font-family: simsun;
-        color: #999;
-    }
-
-    span {
+    .price {
         color: #E4393C;
         font-family: "microsoft yahei";
-        margin-left: 10px;
-    }
-
-    .price{
         font-size: 22px;
     }
+
+    label {
+        color: #666
+    }
+}
+
+.box-stock {
+    padding-left: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+label,
+.dt {
+    font-family: simsun;
+    color: #999;
+}
+
+.box-item {
+    margin-left: 10px;
 }
 </style>

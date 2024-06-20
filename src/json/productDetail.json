@@ -17,5 +17,60 @@
         "hrefDesc": "华为 HUAWEI Mate 10 Pro 10:08 限时限量抢！",
         "id": "123"
     },
-    "title": "预订用户预计11月30日左右陆续发货！麒麟970芯片！AI智能拍照！"
+    "title": "预订用户预计11月30日左右陆续发货！麒麟970芯片！AI智能拍照！",
+    "price": 4499,
+    "colorData": [
+        {
+            "item": "摩卡金",
+            "value": "J1"
+        },
+        {
+            "item": "亮黑色",
+            "value": "H1"
+        },
+        {
+            "item": "香槟金",
+            "value": "J2"
+        },
+        {
+            "item": "樱粉金",
+            "value": "J3"
+        }
+    ],
+    "versionData": [
+        {
+            "item": "标准版",
+            "value": "J1"
+        },
+        {
+            "item": "套装版",
+            "value": "H1"
+        },
+        {
+            "item": "香槟金",
+            "value": "J2"
+        },
+        {
+            "item": "樱粉金",
+            "value": "J3"
+        }
+    ],
+    "memoryData": [
+        {
+            "item": "摩卡金",
+            "value": "J1"
+        },
+        {
+            "item": "亮黑色",
+            "value": "H1"
+        },
+        {
+            "item": "香槟金",
+            "value": "J2"
+        },
+        {
+            "item": "樱粉金",
+            "value": "J3"
+        }
+    ]
 }
