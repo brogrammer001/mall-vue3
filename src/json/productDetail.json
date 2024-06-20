@@ -17,7 +17,6 @@
         "hrefDesc": "华为 HUAWEI Mate 10 Pro 10:08 限时限量抢！",
         "id": "123"
     },
-    "title": "预订用户预计11月30日左右陆续发货！麒麟970芯片！AI智能拍照！",
     "price": 4499,
     "colorData": [
         {
@@ -40,37 +39,332 @@
     "versionData": [
         {
             "item": "标准版",
-            "value": "J1"
+            "value": "B1"
         },
         {
             "item": "套装版",
-            "value": "H1"
-        },
-        {
-            "item": "香槟金",
-            "value": "J2"
-        },
-        {
-            "item": "樱粉金",
-            "value": "J3"
+            "value": "B2"
         }
     ],
     "memoryData": [
         {
-            "item": "摩卡金",
-            "value": "J1"
+            "item": "8GB+128GB",
+            "value": "A1"
         },
         {
-            "item": "亮黑色",
-            "value": "H1"
+            "item": "8GB+256GB",
+            "value": "A2"
         },
         {
-            "item": "香槟金",
-            "value": "J2"
+            "item": "12GB+256GB",
+            "value": "A3"
         },
         {
-            "item": "樱粉金",
-            "value": "J3"
+            "item": "16GB+512GB",
+            "value": "A4"
         }
-    ]
+    ],
+    "productInfo": {
+        "name": "品牌",
+        "value": "荣耀（HONOR）",
+        "url": "www.baidu.com",
+        "imgs": [
+            "//img30.360buyimg.com/sku/jfs/t1/195708/35/45552/53641/665983f1Fa5876bd2/a32ae0e06c4207b1.jpg"
+        ]
+    },
+    "productDetailInfo": [
+        {
+            "name": "商品名称",
+            "value": "荣耀X50"
+        },
+        {
+            "name": "商品编号",
+            "value": "100057334060"
+        },
+        {
+            "name": "CPU型号",
+            "value": "第一代骁龙6"
+        },
+        {
+            "name": "运行内存",
+            "value": "8GB"
+        },
+        {
+            "name": "机身颜色",
+            "value": "雨后初晴"
+        },
+        {
+            "name": "三防标准",
+            "value": "IP53"
+        },
+        {
+            "name": "屏幕分辨率",
+            "value": "1.5K"
+        },
+        {
+            "name": "充电功率",
+            "value": "26-49W"
+        },
+        {
+            "name": "泰尔电竞评级",
+            "value": "否"
+        },
+        {
+            "name": "支持IPv6",
+            "value": "支持IPv6"
+        },
+        {
+            "name": "屏幕材质",
+            "value": "OLED曲面屏"
+        },
+        {
+            "name": "后摄主像素",
+            "value": "以官网信息为准"
+        },
+        {
+            "name": "机身内存",
+            "value": "128GB"
+        }
+    ],
+    "spu": [
+        {
+            "title": "主体",
+            "data": [
+                {
+                    "name": "CCC强制性认证",
+                    "value": "是"
+                },
+                {
+                    "name": "电信设备进网许可证",
+                    "value": "是"
+                },
+                {
+                    "name": "上市日期",
+                    "value": "2023-07-05"
+                },
+                {
+                    "name": "机型",
+                    "value": "荣耀 X50"
+                },
+                {
+                    "name": "入网型号",
+                    "value": "ALI-AN00"
+                }
+            ]
+        },
+        {
+            "title": "基本信息",
+            "data": [
+                {
+                    "name": "机身颜色",
+                    "value": "雨后初晴"
+                },
+                {
+                    "name": "机身重量",
+                    "value": "185g"
+                },
+                {
+                    "name": "机身尺寸",
+                    "value": "宽75.5mm；长163.6mm；厚7.98mm"
+                }
+            ]
+        },
+        {
+            "title": "存储",
+            "data": [
+                {
+                    "name": "存储卡",
+                    "value": "不支持"
+                },
+                {
+                    "name": "运行内存",
+                    "value": "8GB"
+                },
+                {
+                    "name": "机身内存",
+                    "value": "128GB"
+                }
+            ]
+        },
+        {
+            "title": "屏幕",
+            "data": [
+                {
+                    "name": "屏幕刷新率",
+                    "value": "120Hz"
+                },
+                {
+                    "name": "屏幕尺寸",
+                    "value": "6.78英寸"
+                },
+                {
+                    "name": "屏幕特色",
+                    "value": "德国莱茵护眼，高频PWM调光"
+                }
+            ]
+        },
+        {
+            "title": "电池信息",
+            "data": [
+                {
+                    "name": "无线充电",
+                    "value": "不支持"
+                },
+                {
+                    "name": "电池容量",
+                    "value": "5800mAh(typ)"
+                },
+                {
+                    "name": "充电功率",
+                    "value": "35W"
+                }
+            ]
+        },
+        {
+            "title": "操作系统",
+            "data": [
+                {
+                    "name": "系统",
+                    "value": "Android"
+                }
+            ]
+        },
+        {
+            "title": "网络支持",
+            "data": [
+                {
+                    "name": "5G网络",
+                    "value": "支持5G"
+                },
+                {
+                    "name": "4G网络",
+                    "value": "4G FDD-LTE；4G TD-LTE"
+                },
+                {
+                    "name": "SIM卡类型",
+                    "value": "Nano SIM"
+                },
+                {
+                    "name": "卫星网络",
+                    "value": "不支持"
+                },
+                {
+                    "name": "双卡机类型",
+                    "value": "双卡双待"
+                },
+                {
+                    "name": "SIM卡数量",
+                    "value": "2个"
+                }
+            ]
+        },
+        {
+            "title": "数据接口",
+            "data": [
+                {
+                    "name": "充电接口",
+                    "value": "Type-C"
+                }
+            ]
+        },
+        {
+            "title": "手机特性",
+            "data": [
+                {
+                    "name": "生物识别",
+                    "value": "屏幕指纹"
+                }
+            ]
+        },
+        {
+            "title": "摄像头",
+            "data": [
+                {
+                    "name": "前摄主像素",
+                    "value": "800万像素"
+                },
+                {
+                    "name": "拍照特色",
+                    "value": "无"
+                },
+                {
+                    "name": "后摄2-超广角像素",
+                    "value": "普通(以官网信息为准)"
+                },
+                {
+                    "name": "后摄3-tele像素",
+                    "value": "无"
+                }
+            ]
+        }
+    ],
+    "commentInfo": {
+        "rate": 3.4,
+        "commentTagList": [
+            {
+                "tag": "漂亮大方",
+                "count": 429
+            },
+            {
+                "tag": "时尚美观",
+                "count": 199
+            },
+            {
+                "tag": "高端大气",
+                "count": 195
+            },
+            {
+                "tag": "性能一流",
+                "count": 134
+            },
+            {
+                "tag": "手感一流",
+                "count": 93
+            },
+            {
+                "tag": "操作简便",
+                "count": 84
+            },
+            {
+                "tag": "散热性佳",
+                "count": 29
+            },
+            {
+                "tag": "品质优良",
+                "count": 28
+            },
+            {
+                "tag": "送给TA",
+                "count": 15
+            },
+            {
+                "tag": "解锁迅速",
+                "count": 1
+            },
+            {
+                "tag": "游戏上分",
+                "count": 1
+            },
+            {
+                "tag": "按键灵敏",
+                "count": 1
+            }
+        ]
+    },
+    "commentList": [
+            {
+                "actions": ["Reply to"],
+                "author": "Han Solo",
+                "avatar": "https://joeschmoe.io/api/v1/random",
+                "content": "1111212",
+                "datetime": "2024-06-20"
+              },
+              {
+                "actions": ["Reply to"],
+                "author": "Han Solo",
+                "avatar": "https://joeschmoe.io/api/v1/random",
+                "content": "1111212",
+                "datetime": "2024-06-20"
+              }
+        ]
 }
