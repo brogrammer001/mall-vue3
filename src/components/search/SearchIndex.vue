@@ -2,7 +2,7 @@
     <IndexHeaderSelect :isSearch="true" />
     <IndexHeadSerch :isSearch="true" />
     <SearchHotSalePromotion />
-    <a-config-provider :theme="{ token: { colorPrimary: '#ec5353' } }">
+    <a-config-provider :theme="{ token: { colorPrimary: proxy.$colorPrimary } }">
         <a-row style="margin-top: 5px;">
             <a-col :span="16" :offset="4">
                 <a-breadcrumb class="breadcrumb-style">
@@ -32,7 +32,10 @@ import IndexHeadSerch from '../index/IndexHeadSerch.vue'
 import SearchHotSalePromotion from '../search/SearchHotSalePromotion.vue'
 import SearchQuerySelector from '../search/SearchQuerySelector.vue'
 import SearchListData from '../search/SearchListData.vue'
-import { h, ref, reactive } from 'vue';
+import { getCurrentInstance } from 'vue';
+
+const { proxy } = getCurrentInstance();
+
 let router = useRouter();
 //查询条件
 let searchData = router.currentRoute.value.params.searchData;

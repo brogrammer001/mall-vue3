@@ -12,7 +12,9 @@
     "@ant-design/icons-vue": "^7.0.1",
     "animate.css": "^4.1.1",
     "ant-design-vue": "^4.1.0",
+    "axios": "^1.7.2",
     "vue": "^3.2.41",
+    "vue-request": "^1.2.5",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {

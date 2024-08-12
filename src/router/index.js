@@ -5,6 +5,7 @@ import RegisterIndex from '../components/register/RegisterIndex.vue'
 import ForgetPasswordIndex from '../components/forgetpassword/ForgetPasswordIndex.vue'
 import SearchIndex from '../components/search/SearchIndex.vue'
 import ProductDetailIndex from '../components/productdetail/ProductDetailIndex.vue'
+import AddShoppingCartIndex from '../components/addshoppingcart/AddShoppingCartIndex.vue'
 
 const routes = [
     {
@@ -36,6 +37,11 @@ const routes = [
         path: '/productDetail/:productId',
         name: 'productDetail',
         component: ProductDetailIndex
+    },
+    {
+        path: '/addShoppingCart/:productId',
+        name: 'addShoppingCart',
+        component: AddShoppingCartIndex
     },
 ]
 

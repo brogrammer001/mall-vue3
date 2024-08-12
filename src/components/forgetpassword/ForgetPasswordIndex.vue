@@ -1,5 +1,5 @@
 <template>
-    <a-config-provider :theme="{ token: { colorPrimary: '#ec5353' } }">
+    <a-config-provider :theme="{ token: { colorPrimary: proxy.$colorPrimary } }">
         <a-row :style="headerStyle">
             <a-col :span="16" :offset="4">
                 <a-layout-header class="header-title">
@@ -125,7 +125,10 @@ import Icon, {
     SafetyCertificateOutlined
 } from '@ant-design/icons-vue';
 import { message, theme } from 'ant-design-vue';
-import { h, ref, reactive } from 'vue';
+import { h, ref, reactive, getCurrentInstance } from 'vue';
+
+const { proxy } = getCurrentInstance();
+
 const headerStyle = {
     paddingInline: 25,
     margin: "0",

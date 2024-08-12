@@ -1,7 +1,7 @@
 <template>
-    <!-- <IndexHeaderSelect :isSearch="true" />
-    <IndexHeadSerch :isSearch="true" /> -->
-    <a-config-provider :theme="{ token: { colorPrimary: '#ec5353' } }">
+    <IndexHeaderSelect :isSearch="true" />
+    <IndexHeadSerch :isSearch="true" />
+    <a-config-provider :theme="{ token: { colorPrimary: proxy.$colorPrimary } }">
         <a-row style="background: #f2f2f2;">
             <a-col :span="16" :offset="4">
                 <a-breadcrumb class="breadcrumb-style">
@@ -14,7 +14,7 @@
         <a-row style="margin-top: 5px;">
             <a-col :span="16" :offset="4">
                 <a-row>
-                    <!-- <a-col :span="9">
+                    <a-col :span="9">
                         <MagnifyingGlass>
                             <img :src="productData.defaultImg" />
                         </MagnifyingGlass>
@@ -26,64 +26,64 @@
                                         <LeftOutlined />
                                     </div>
                                 </template>
-
-<template #nextArrow>
+                                <template #nextArrow>
                                     <div class="custom-slick-arrow">
                                         <RightOutlined />
                                     </div>
                                 </template>
-<div v-for="(item, index) in productData.cutImg" :key="index">
-    <div class="img-item">
-        <img width="54" height="54" :src="item" />
-    </div>
-</div>
-</a-carousel>
-</div>
-</a-col>
-<a-col :span="15">
-    <div class="sku-name">{{ productData.phoneTitle }}</div>
-    <div class="box-hide">{{ latestRelease.title }}
-        <a :href="'productDetail/' + latestRelease.id"><u>{{ latestRelease.hrefDesc }}</u></a>
-    </div>
-    <a-form :model="productForm" :label-col="labelCol" :wrapper-col="wrapperCol">
-        <a-form-item class="box-summary box-stock" label="价　　格">
-            <span class="price">￥{{ productData.price }}</span>
-        </a-form-item>
-        <a-form-item class="box-stock" label="配&nbsp;&nbsp;送&nbsp;&nbsp;至">
-            <a-cascader v-model:value="areaValue" placeholder="Please select" :options="areaOptions" @change="onChange">
-                <a class="ant-dropdown-link dt" @click.prevent>
-                    {{ text }}
-                    <DownOutlined />
-                </a>
-            </a-cascader>
-        </a-form-item>
-        <a-divider style="margin: 10px 0;" />
-        <a-form-item class="box-stock" label="选择颜色">
-            <a-radio-group v-model:value="productForm.colorValue" v-for="(l, index) in productData.colorData"
-                :key="index">
-                <a-radio-button :value="l.value">{{ l.item }}</a-radio-button>
-            </a-radio-group>
-        </a-form-item>
-        <a-form-item class="box-stock" label="选择版本">
-            <a-radio-group v-model:value="productForm.versionValue" v-for="(l, index) in productData.versionData"
-                :key="index">
-                <a-radio-button :value="l.value">{{ l.item }}</a-radio-button>
-            </a-radio-group>
-        </a-form-item>
-        <a-form-item class="box-stock" label="选择内存">
-            <a-radio-group v-model:value="productForm.memoryValue" v-for="(l, index) in productData.memoryData"
-                :key="index">
-                <a-radio-button :value="l.value">{{ l.item }}</a-radio-button>
-            </a-radio-group>
-        </a-form-item>
-        <a-form-item>
-            <div class="submit-style">
-                <a-input-number size="large" v-model:value="productForm.num" :min="1" />
-                <a-button size="large" type="primary" html-type="submit">加入购物车</a-button>
-            </div>
-        </a-form-item>
-    </a-form>
-</a-col> -->
+                                <div v-for="(item, index) in productData.cutImg" :key="index">
+                                    <div class="img-item">
+                                        <img width="54" height="54" :src="item" />
+                                    </div>
+                                </div>
+                            </a-carousel>
+                        </div>
+                    </a-col>
+                    <a-col :span="15">
+                        <div class="sku-name">{{ productData.phoneTitle }}</div>
+                        <div class="box-hide">{{ latestRelease.title }}
+                            <a :href="'productDetail/' + latestRelease.id"><u>{{ latestRelease.hrefDesc }}</u></a>
+                        </div>
+                        <a-form :model="productForm" :label-col="labelCol" :wrapper-col="wrapperCol" @finish="onFinish">
+                            <a-form-item class="box-summary box-stock" label="价　　格">
+                                <span class="price">￥{{ productData.price }}</span>
+                            </a-form-item>
+                            <a-form-item class="box-stock" label="配&nbsp;&nbsp;送&nbsp;&nbsp;至">
+                                <a-cascader v-model:value="productForm.areaValue" placeholder="Please select"
+                                    :options="areaOptions" @change="onChange">
+                                    <a class="ant-dropdown-link dt" @click.prevent>
+                                        {{ text }}
+                                        <DownOutlined />
+                                    </a>
+                                </a-cascader>
+                            </a-form-item>
+                            <a-divider style="margin: 10px 0;" />
+                            <a-form-item class="box-stock" label="选择颜色">
+                                <a-radio-group v-model:value="productForm.colorValue"
+                                    v-for="(l, index) in productData.colorData" :key="index">
+                                    <a-radio-button :value="l.value">{{ l.item }}</a-radio-button>
+                                </a-radio-group>
+                            </a-form-item>
+                            <a-form-item class="box-stock" label="选择版本">
+                                <a-radio-group v-model:value="productForm.versionValue"
+                                    v-for="(l, index) in productData.versionData" :key="index">
+                                    <a-radio-button :value="l.value">{{ l.item }}</a-radio-button>
+                                </a-radio-group>
+                            </a-form-item>
+                            <a-form-item class="box-stock" label="选择内存">
+                                <a-radio-group v-model:value="productForm.memoryValue"
+                                    v-for="(l, index) in productData.memoryData" :key="index">
+                                    <a-radio-button :value="l.value">{{ l.item }}</a-radio-button>
+                                </a-radio-group>
+                            </a-form-item>
+                            <a-form-item>
+                                <div class="submit-style">
+                                    <a-input-number size="large" v-model:value="productForm.num" :min="1" />
+                                    <a-button size="large" type="primary" html-type="submit">加入购物车</a-button>
+                                </div>
+                            </a-form-item>
+                        </a-form>
+                    </a-col>
                 </a-row>
                 <a-row class="product-info">
                     <div class="product-info-menu">
@@ -138,8 +138,8 @@
                                 </a-col>
                             </a-row>
                             <a-divider style="margin: 10px 0;" />
-                            <a-list class="comment-list" :header="`${commentList.length} replies`" item-layout="horizontal"
-                                :data-source="commentList">
+                            <a-list class="comment-list" :header="`${commentList.length} replies`"
+                                item-layout="horizontal" :data-source="commentList">
                                 <template #renderItem="{ item }">
                                     <a-list-item>
                                         <a-comment :author="item.author" :avatar="item.avatar">
@@ -178,11 +178,13 @@ import { useRouter } from 'vue-router';
 import IndexHeaderSelect from '../index/IndexHeaderSelect.vue'
 import IndexHeadSerch from '../index/IndexHeadSerch.vue'
 import MagnifyingGlass from '../productdetail/MagnifyingGlass.vue'
-import { h, ref, reactive, onMounted, computed } from 'vue';
+import { h, ref, reactive, onMounted, computed, getCurrentInstance } from 'vue';
+
+const { proxy } = getCurrentInstance();
 
 let router = useRouter();
 //查询条件
-let productId = router.currentRoute.value.params.productId;
+const productId = router.currentRoute.value.params.productId;
 
 const fakeDataUrl = `/src/json/productDetail.json`;
 const areaDataUrl = `/src/json/area.json`;
@@ -197,7 +199,8 @@ const commentInfo = computed(() => productData.value.commentInfo ? productData.v
 const commentList = computed(() => productData.value.commentList ? productData.value.commentList : []);
 
 const productForm = reactive({
-    price: '',
+    price: 0,
+    areaValue: '',
     colorValue: '',
     versionValue: '',
     memoryValue: '',
@@ -214,7 +217,6 @@ const wrapperCol = {
     span: 24,
 };
 
-const areaValue = ref([]);
 const text = ref('江西省南昌市');
 
 const menuCurrent = ref(['productInfo']);
@@ -296,6 +298,17 @@ function recursionSetArea(areaArray) {
  */
 const onChange = (_value, selectedOptions) => {
     text.value = selectedOptions.map(o => o.label).join(', ');
+};
+
+const onFinish = values => {
+    productForm.price = productData.value.price;
+
+    router.push({
+        name: 'addShoppingCart',
+        params: {
+            productId: productId
+        }
+    });
 };
 
 </script>
@@ -460,6 +473,7 @@ label,
 .product-info {
     position: relative;
     display: block;
+    padding-top: 20px;
 
     .product-info-menu {
         background-color: #f7f7f7 !important;

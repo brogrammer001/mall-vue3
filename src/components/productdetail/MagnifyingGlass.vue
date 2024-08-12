@@ -75,9 +75,9 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-    imgbox.value.removeEventListener('mouseover', () => { })
-    imgbox.value.removeEventListener('mousemove', () => { })
-    imgbox.value.removeEventListener('mouseout', () => { })
+    //imgbox.value.removeEventListener('mouseover', () => { })
+    //imgbox.value.removeEventListener('mousemove', () => { })
+    //imgbox.value.removeEventListener('mouseout', () => { })
 })
 </script>
 

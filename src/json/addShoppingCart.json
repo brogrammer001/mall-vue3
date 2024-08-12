@@ -1,0 +1,115 @@
+{
+    "Num": 7,
+    "cartNum": 6,
+    "RePrice": 0,
+    "Price": 6372,
+    "PriceShow": "￥6372.00",
+    "product": [
+        {
+            "shopId": 100106693305,
+            "shopName": "一加手机京东自营官方旗舰店",
+            "item": {
+                "Id": "100106693305",
+                "Name": "一加 Ace 3 Pro 16GB+512GB 钛空镜银 第三代骁龙 8 旗舰芯片 6100mAh 冰川电池 AI智能游戏手机",
+                "Num": 1,
+                "Price": 3978,
+                "PriceShow": "￥3,978.00",
+                "ImgUrl": "jfs/t1/244917/31/12450/46279/667ccdb1F3cfd20d5/db1c0c14102b1c49.jpg.dpg",
+                "ImageUrlRN": "jfs/t1/244917/31/12450/46279/667ccdb1F3cfd20d5/db1c0c14102b1c49.jpg",
+                "unitedText": "钛空镜银，16GB+512GB",
+                "propertyTags": {
+                    "a": "钛空镜银",
+                    "b": "16GB+512GB"
+                }
+            }
+        },
+        {
+            "shopId": 100054291126,
+            "shopName": "漫步者京东自营旗舰店",
+            "item": {
+                "Id": "100054291126",
+                "Name": "漫步者（EDIFIER）X3 Air真无线立体声蓝牙耳机 无线运动游戏耳机 通话降噪 适用苹果华为小米手机 雅灰 七夕礼物",
+                "Num": 1,
+                "Price": 109,
+                "PriceShow": "￥109.00",
+                "ImgUrl": "jfs/t1/233741/20/23780/44565/66a9fbd8F7fda815b/b808e1142da1c07c.jpg.dpg",
+                "ImageUrlRN": "jfs/t1/233741/20/23780/44565/66a9fbd8F7fda815b/b808e1142da1c07c.jpg",
+                "unitedText": "【全芯升级】X3 Air雅灰",
+                "propertyTags": {
+                    "a": "【全芯升级】X3 Air雅灰"
+                }
+            }
+        },
+        {
+            "shopId": 100057334060,
+            "shopName": "荣耀京东自营旗舰店",
+            "item": {
+                "Id": "100057334060",
+                "Name": "荣耀X50 第一代骁龙6芯片 1.5K超清护眼硬核曲屏 5800mAh超耐久大电池 5G AI手机 8GB+128GB 雨后初晴",
+                "Num": 1,
+                "Price": 1399,
+                "PriceShow": "￥1,399.00",
+                "ImgUrl": "jfs/t1/228277/36/24287/76067/66aa371dF18273a7e/23e3ef8c97653c79.jpg.dpg",
+                "ImageUrlRN": "jfs/t1/228277/36/24287/76067/66aa371dF18273a7e/23e3ef8c97653c79.jpg",
+                "unitedText": "雨后初晴，8GB+128GB",
+                "propertyTags": {
+                    "a": "雨后初晴",
+                    "b": "8GB+128GB"
+                }
+            }
+        },
+        {
+            "shopId": 10096821447341,
+            "shopName": "柒船旗舰店",
+            "item": {
+                "Id": "10096821447341",
+                "Name": "柒船桌面风扇宿舍家用大风力夹式三挡调节壁挂折叠便携式随身学生办公小电扇企业定制刻字公司礼品 基础款-翡翠绿【插电款】即插即用+可折叠 0mAh",
+                "Num": 1,
+                "Price": 9,
+                "PriceShow": "￥9.00",
+                "ImgUrl": "jfs/t1/188155/1/46078/112909/664f21b3F0605f427/9073d4b05e688070.jpg.dpg",
+                "ImageUrlRN": "jfs/t1/188155/1/46078/112909/664f21b3F0605f427/9073d4b05e688070.jpg",
+                "unitedText": "基础款-翡翠绿【插电款】即插即用+可折叠 0mAh",
+                "propertyTags": {
+                    "a": "基础款-翡翠绿【插电款】即插即用+可折叠 0mAh"
+                }
+            }
+        },
+        {
+            "shopId": 100010235083,
+            "shopName": "",
+            "item": {
+                "Id": "100010235083",
+                "Name": "光威（Gloway）16GB DDR4 3200 笔记本内存条 战将系列",
+                "Num": 2,
+                "Price": 189,
+                "PriceShow": "￥189.00",
+                "ImgUrl": "jfs/t1/224214/38/22140/106363/66822473F9b10325d/269fbfa1b9dca9ba.jpg.dpg",
+                "ImageUrlRN": "jfs/t1/224214/38/22140/106363/66822473F9b10325d/269fbfa1b9dca9ba.jpg",
+                "unitedText": "【DDR4 3200】笔记本内存条，【16G】单条",
+                "propertyTags": {
+                    "a": "【DDR4 3200】笔记本内存条",
+                    "b": "【16G】单条"
+                }
+            }
+        },
+        {
+            "shopId": 100008221041,
+            "shopName": "",
+            "item": {
+                "Id": "100008221041",
+                "Name": "金士顿 (Kingston) FURY 32GB(16G×2)套装 DDR4 3200 笔记本内存条 Impact风暴系列 骇客神条",
+                "Num": 1,
+                "Price": 499,
+                "PriceShow": "￥499.00",
+                "ImgUrl": "jfs/t1/227969/21/25138/106812/66aae50aF7a455702/9644a94cf9791205.jpg.dpg",
+                "ImageUrlRN": "jfs/t1/227969/21/25138/106812/66aae50aF7a455702/9644a94cf9791205.jpg",
+                "unitedText": "『D4 3200频』风暴 电竞游戏款，套条『16G×2』",
+                "propertyTags": {
+                    "a": "『D4 3200频』风暴 电竞游戏款",
+                    "b": "套条『16G×2』"
+                }
+            }
+        }
+    ]
+}
