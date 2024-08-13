@@ -6,6 +6,7 @@ import ForgetPasswordIndex from '../components/forgetpassword/ForgetPasswordInde
 import SearchIndex from '../components/search/SearchIndex.vue'
 import ProductDetailIndex from '../components/productdetail/ProductDetailIndex.vue'
 import AddShoppingCartIndex from '../components/addshoppingcart/AddShoppingCartIndex.vue'
+import AddShoppingCartSuccess from '../components/addshoppingcart/AddShoppingCartSuccess.vue'
 
 const routes = [
     {
@@ -39,9 +40,14 @@ const routes = [
         component: ProductDetailIndex
     },
     {
-        path: '/addShoppingCart/:productId',
+        path: '/addShoppingCart/',
         name: 'addShoppingCart',
         component: AddShoppingCartIndex
+    },
+    {
+        path: '/addShoppingCartSuccess/:productId',
+        name: 'addShoppingCartSuccess',
+        component: AddShoppingCartSuccess
     },
 ]
 

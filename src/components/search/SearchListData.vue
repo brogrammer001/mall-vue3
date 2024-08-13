@@ -5,7 +5,7 @@
     </a-radio-group>
     <a-list :grid="{ column: 5 }" :pagination="pagination" :data-source="listData">
         <template #renderItem="{ item }">
-            <a-list-item style="padding: 0;margin: 12px 0 0 12px;" @click="productDetail(item.spu_id)">
+            <a-list-item style="padding: 0;margin: 12px 0 0 12px;" @click="productDetail(item.shop_id)">
                 <a-card hoverable>
                     <template #cover>
                         <img width="220" height="220" :alt="item.ad_title"

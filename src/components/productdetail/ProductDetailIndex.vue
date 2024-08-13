@@ -304,7 +304,7 @@ const onFinish = values => {
     productForm.price = productData.value.price;
 
     router.push({
-        name: 'addShoppingCart',
+        name: 'addShoppingCartSuccess',
         params: {
             productId: productId
         }

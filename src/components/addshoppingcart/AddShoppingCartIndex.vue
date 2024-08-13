@@ -1,5 +1,5 @@
 <template>
-    <!-- <IndexHeaderSelect :isSearch="true" /> -->
+    <IndexHeaderSelect :isSearch="true" />
     <ShoppingCartHeadSearch />
     <a-config-provider :theme="{ token: { colorPrimary: proxy.$colorPrimary } }">
         <a-row>
@@ -47,9 +47,9 @@
                             <template #footer>
                                 <div class="One_ShopFootBuy">
                                     <ul>
-                                        <li class="check-check"><a-checkbox @change="selectAll"
+                                        <li class="check-check"><a-checkbox :class="rowSelect" @change="selectAll"
                                                 v-model:checked="checked">全选</a-checkbox></li>
-                                        <li><a-button type="link">删除选中的商品</a-button></li>
+                                        <li><a-button @click="deleteProducts()" type="link">删除选中的商品</a-button></li>
                                         <li><a-button type="link">移到我的关注</a-button></li>
                                         <li><a-button type="link">清除下柜商品</a-button></li>
                                     </ul>
@@ -85,22 +85,48 @@ import { message } from 'ant-design-vue';
 const { proxy } = getCurrentInstance();
 const colorPrimary = computed(() => proxy.$colorPrimary);
 let router = useRouter();
-//查询条件
-let productId = router.currentRoute.value.params.productId;
 const open = ref(false);
 const checked = ref(false);
 const confirmLoading = ref(false);
 const cartInfo = ref({});
 const state = ref({});
+const rowSelect = ref("");
+const selectedIds = ref([]);
 const toLogin = () => {
     router.push({
         name: 'login'
     });
 }
-const { selectedRowKeys } = state.value;
+const selectedRowKeys = computed(() => state.value.selectedRowKeys);
+
 const rowSelection = {
     selectedRowKeys,
     onChange: handleRowSelectChange,
+    onSelect: function (record, selected, selectedRows, nativeEvent) {
+        if (selectedRows.length != 0 && productList.value.length != selectedRows.length) {
+            rowSelect.value = "indeterminate"
+            checked.value = false;
+        } else {
+            rowSelect.value = ""
+        }
+
+        if (productList.value.length == selectedRows.length) {
+            checked.value = true;
+        }
+        selectedIds.value = selectedRows.map(row => row.shopId);
+        handleRowSelectChange(selectedIds.value, selectedRows);
+    },
+    onSelectAll: function (selected, selectedRows, changeRows) {
+        //全选/取消全选事件
+        selectedIds.value = selectedRows.map(row => row.shopId);
+        handleRowSelectChange(selectedIds.value, selectedRows);
+        if (selectedRows.length == 0) {
+            checked.value = false;
+        } else {
+            checked.value = true;
+        }
+
+    }
 }
 const columns = [
     {
@@ -143,16 +169,15 @@ const productList = computed(() => cartInfo.value.product ? cartInfo.value.produ
 // 传入选中的行的序号ID 和 选中的行
 function handleRowSelectChange(selectedRowKeys, selectedRows) {
     // 在 state中 维护这个状态
-    state.value = {
-        selectedRowKeys, selectedRows
-    }
+    state.value = { selectedRowKeys, selectedRows }
 }
 
 function selectAll() {
+    rowSelect.value = "";
     const data = productList.value;
     // selectedRows 为state中存放的选中的表格行
     const selectedRows = state.value.selectedRows;
-    
+
     if (selectedRows && data.length === selectedRows.length) {
         handleRowSelectChange([], []);
     } else {
@@ -164,8 +189,14 @@ function selectAll() {
             index.push(data[item].shopId)
             selectedRowArr.push(data[item])
         });
+        console.log(index, selectedRowArr)
         handleRowSelectChange(index, selectedRowArr)
     }
+}
+
+function deleteProducts() {
+    console.log(selectedIds.value)
+    showModal();
 }
 
 function deleteProduct(shop_id) {
@@ -202,6 +233,18 @@ const handleOk = () => {
 
 :deep(.ant-btn-link) {
     color: v-bind(colorPrimary);
+}
+
+.indeterminate :after {
+    top: 50%;
+    inset-inline-start: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: #ec5353;
+    border: 0;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    content: "";
 }
 
 .shoppingcart-tips {
