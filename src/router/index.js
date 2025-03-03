@@ -7,6 +7,7 @@ import SearchIndex from '../components/search/SearchIndex.vue'
 import ProductDetailIndex from '../components/productdetail/ProductDetailIndex.vue'
 import AddShoppingCartIndex from '../components/addshoppingcart/AddShoppingCartIndex.vue'
 import AddShoppingCartSuccess from '../components/addshoppingcart/AddShoppingCartSuccess.vue'
+import SettleAccountsIndex from '../components/settleAccounts/SettleAccountsIndex.vue'
 
 const routes = [
     {
@@ -40,7 +41,7 @@ const routes = [
         component: ProductDetailIndex
     },
     {
-        path: '/addShoppingCart/',
+        path: '/addShoppingCart',
         name: 'addShoppingCart',
         component: AddShoppingCartIndex
     },
@@ -48,6 +49,11 @@ const routes = [
         path: '/addShoppingCartSuccess/:productId',
         name: 'addShoppingCartSuccess',
         component: AddShoppingCartSuccess
+    },
+    {
+        path: '/settleAccounts',
+        name: 'settleAccounts',
+        component: SettleAccountsIndex
     },
 ]
 

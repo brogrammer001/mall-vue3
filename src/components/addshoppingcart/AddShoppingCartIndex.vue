@@ -4,11 +4,15 @@
     <a-config-provider :theme="{ token: { colorPrimary: proxy.$colorPrimary } }">
         <a-row>
             <a-col :span="16" :offset="4">
-                <div class="shoppingcart-tips">
-                    <InfoCircleOutlined />
-                    <span>您还没有登录！登录后购物车的商品将保存到您账号中</span>
-                    <a-button type="primary" size="small" @click="toLogin">立即登录</a-button>
-                </div>
+                <a-alert type="warning">
+                    <template #message>
+                        <p class="shoppingcart-tips">
+                            <InfoCircleOutlined />
+                            <span>您还没有登录！登录后购物车的商品将保存到您账号中</span>
+                            <a-button type="primary" size="small" @click="toLogin">立即登录</a-button>
+                        </p>
+                    </template>
+                </a-alert>
                 <a-tabs activeKey="allproduct">
                     <a-tab-pane key="allproduct" tab="全部商品">
                         <a-table :columns="columns" :scroll="{ y: 400 }" :pagination="false" :data-source="productList"
@@ -36,8 +40,7 @@
                                 </template>
 
                                 <template v-if="column.dataIndex === 'sum'">
-                                    ￥{{ (record.item.Price ? record.item.Price : 1) * (record.item.Num ? record.item.Num
-        : 1) }}
+                                    ￥{{ (record.item.Price ? record.item.Price : 1) * (record.item.Num ? record.item.Num : 1) }}
                                 </template>
 
                                 <template v-if="column.dataIndex === 'handle'">
@@ -56,7 +59,7 @@
                                     <ul>
                                         <li>总价:<span style="color:#e64346;font-weight:bold;font-size:16px;"
                                                 class="fnt">￥0.00</span> </li>
-                                        <li><a-button type="primary">去结算</a-button></li>
+                                        <li><a-button type="primary" @click="goSettleAccounts">去结算</a-button></li>
                                     </ul>
                                 </div>
                             </template>
@@ -218,6 +221,20 @@ const handleOk = () => {
         message.success('删除成功！');
     }, 2000);
 }
+
+const goSettleAccounts = () => {
+    if (selectedIds.value.length === 0) {
+        message.info('请选择商品！');
+        return false;
+    }
+
+    router.push({
+        name: 'settleAccounts',
+        query: {
+            row: JSON.stringify(selectedIds.value)
+        },
+    });
+}
 </script>
 
 <style lang="less" scoped>
@@ -248,11 +265,6 @@ const handleOk = () => {
 }
 
 .shoppingcart-tips {
-    border: 1px solid #edd28b;
-    line-height: 46px;
-    padding-left: 20px;
-    background: #fffdee;
-
     span {
         color: #ff7700;
         margin-right: 15px;

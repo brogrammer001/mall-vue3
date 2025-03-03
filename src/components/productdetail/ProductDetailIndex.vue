@@ -176,7 +176,7 @@ import {
 } from '@ant-design/icons-vue';
 import { useRouter } from 'vue-router';
 import IndexHeaderSelect from '../index/IndexHeaderSelect.vue'
-import IndexHeadSerch from '../index/IndexHeadSerch.vue'
+import IndexHeadSerch from '../index/IndexHeadSearch.vue'
 import MagnifyingGlass from '../productdetail/MagnifyingGlass.vue'
 import { h, ref, reactive, onMounted, computed, getCurrentInstance } from 'vue';
 
